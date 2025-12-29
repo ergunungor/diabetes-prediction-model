@@ -55,6 +55,24 @@ I followed an iterative approach to improve the model's performance:
 * **Matplotlib** (Visualization)
 * **Scikit-Learn** (Model, Scaling, Metrics)
 
+## ⚔️ Model Comparison & Optimization
+
+To achieve the best possible result, I compared two different classification algorithms.
+
+1.  **Baseline Model (Logistic Regression):** First, I established a baseline using a linear approach.
+2.  **Challenger Model (K-Nearest Neighbors):** Then, I implemented KNN to capture non-linear patterns in the data. I used a loop to find the optimal 'k' value.
+
+### 🏆 Results Table
+| Model | Parameters | Accuracy Score | Status |
+| :--- | :--- | :---: | :---: |
+| **Logistic Regression** | `max_iter=1000` | 74.68% | Baseline |
+| **K-Nearest Neighbors (KNN)** | `n_neighbors=15` | **75.97%** | **Winner 🚀** |
+
+### 💡 Key Findings
+* The **Logistic Regression** model provided a solid baseline but struggled with potential non-linear relationships in the health data.
+* **KNN** performed better when $k=15$. Lower values of $k$ (e.g., $k=3$) caused overfitting, while higher values (e.g., $k=50$) caused underfitting.
+* **Conclusion:** The KNN algorithm (with $k=15$) is the superior model for this specific dataset and preprocessing pipeline.
+
 ## 📥 Installation & Usage
 
 1.  **Clone the repo:**
