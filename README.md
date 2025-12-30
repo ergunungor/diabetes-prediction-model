@@ -88,7 +88,9 @@ Instead of guessing parameters, I used **`GridSearchCV`** to find the optimal se
 ### 🔍 Key Improvements
 * **Reduced Variance:** By averaging multiple trees, the model is less sensitive to noise in the dataset.
 * **Hyperparameter Tuning:** Optimized `n_estimators`, `max_depth`, and `min_samples_split` using 5-fold Cross-Validation.
-* **Feature Insights:** Confirmed that *Glucose* and *BMI* are the strongest predictors for diabetes. 
+* **Feature Insights:** Confirmed that *Glucose* and *BMI* are the strongest predictors for diabetes.
+
+![Feature Importance Graph](critical_factors_diabetes.png)
 
 ## 📥 Installation & Usage
 
