@@ -73,6 +73,23 @@ To achieve the best possible result, I compared two different classification alg
 * **KNN** performed better when $k=15$. Lower values of $k$ (e.g., $k=3$) caused overfitting, while higher values (e.g., $k=50$) caused underfitting.
 * **Conclusion:** The KNN algorithm (with $k=15$) is the superior model for this specific dataset and preprocessing pipeline.
 
+## 🌲 Model V3.0: Random Forest Optimization
+
+In this update, I moved from a single **Decision Tree** to a **Random Forest Classifier** to improve model stability and generalization.
+
+Instead of guessing parameters, I used **`GridSearchCV`** to find the optimal settings.
+
+### 📊 Performance Report
+| Model | Method | Accuracy | Status |
+| :--- | :--- | :---: | :---: |
+| **Decision Tree** | Single Tree (Prone to overfitting) | ~79% (High Variance) | Deprecated |
+| **Random Forest** | Ensemble of 100+ Trees | **77.52%** | **Stable & Robust ✅** |
+
+### 🔍 Key Improvements
+* **Reduced Variance:** By averaging multiple trees, the model is less sensitive to noise in the dataset.
+* **Hyperparameter Tuning:** Optimized `n_estimators`, `max_depth`, and `min_samples_split` using 5-fold Cross-Validation.
+* **Feature Insights:** Confirmed that *Glucose* and *BMI* are the strongest predictors for diabetes. 
+
 ## 📥 Installation & Usage
 
 1.  **Clone the repo:**
