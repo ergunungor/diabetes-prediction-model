@@ -92,6 +92,57 @@ Instead of guessing parameters, I used **`GridSearchCV`** to find the optimal se
 
 ![Feature Importance Graph](critical_factors_diabetes.png)
 
+# 🩺 Diabetes Prediction Project (End-to-End Classification)
+
+This project aims to predict whether a patient has diabetes based on diagnostic measurements. The workflow simulates a real-world data science process, focusing on data cleaning, feature engineering, and model optimization.
+
+## 🚀 Key Highlights (Final Result)
+After evaluating different algorithms and data cleaning techniques, the most robust model was achieved using **Random Forest** combined with **Mean Imputation** and custom **Feature Engineering**.
+
+* **🏆 Final Accuracy:** **77.86%**
+* **Best Model:** Random Forest Classifier (Optimized via GridSearchCV)
+
+---
+
+## 🛠️ Methodology & Evolution
+
+### 1. Data Cleaning (Handling Invalid Zeros)
+The dataset contained '0' values in columns where 0 is biologically impossible (e.g., Insulin, BMI, Glucose).
+* **Attempt 1 (KNN Imputer):** Tried filling missing values using Nearest Neighbors to capture complex patterns. Resulted in **77.04%** accuracy.
+* **Solution (Mean Imputation):** Replacing 0s with the column mean proved to be more stable for this specific dataset, improving accuracy to **77.86%**.
+
+### 2. Feature Engineering 🧠
+* **New Feature:** Created a `G/I Ratio` (Glucose / Insulin).
+* **Logic:** This ratio helps the model capture **Insulin Resistance**, providing a biological context beyond raw numbers.
+
+### 3. Model Comparison
+I tested baseline models against ensemble methods to find the best fit.
+
+| Model | Technique | Accuracy | Status |
+| :--- | :--- | :---: | :---: |
+| **Logistic Regression** | Baseline | 74.68% | Baseline |
+| **KNN** | Standard Scaler | 75.97% | Moderate |
+| **Decision Tree** | Single Tree | ~78% | High Variance |
+| **Random Forest** | KNN Imputer | 77.04% | Good, but complex |
+| **Random Forest** | **Mean Imputer + Feature Eng.** | **77.86%** | **🏆 CHAMPION** |
+
+### 4. Hyperparameter Tuning
+Used `GridSearchCV` (5-Fold Cross-Validation) to tune the Random Forest:
+* `n_estimators`: Tested 100, 200 trees.
+* `max_depth`: Optimized to prevent overfitting.
+* `min_samples_split`: Adjusted to handle noise.
+
+---
+
+## 📊 Conclusion
+This project demonstrated that **data quality and feature engineering** are often more important than model complexity.
+By correctly handling missing values and adding the `Glucose/Insulin` ratio, I achieved a **~3.2% improvement** over the baseline Logistic Regression model.
+
+## 💻 Tech Stack
+* **Python** (Pandas, NumPy)
+* **Scikit-learn** (Modeling, GridSearch, Preprocessing, Imputation)
+* **Matplotlib** (Visualization)
+
 ## 📥 Installation & Usage
 
 1.  **Clone the repo:**
